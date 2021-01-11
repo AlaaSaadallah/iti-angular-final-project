@@ -1,0 +1,27 @@
+<p class="display-4 mb-4">
+    Checkout Page
+  </p>
+  <div class="row">
+    <table class="table">
+      <tr>
+        <td>#</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Quantity</td>
+        <!-- <td>Total</td> -->
+        <td>Actions</td>
+      </tr>
+      <tr *ngFor="let product of items; let i = index">
+        <td><img class="align-self-center" src="{{ product.image }}" style="width: 75px;"></td>
+        <td><h5 class="mt-0 mb-1">{{ product.title }}</h5>
+          {{ product.description }}</td>
+        <td>{{ product.price | currency: "EGP " }} </td>
+        <td><input type="number" value="1" min="1" class="form-control" ng-model="quantity"></td>
+        <!-- <td> {{quantity*price}}</td> -->
+        <td><button type="button" class="btn btn-sm btn-outline-danger" (click)="removeFromCart(i)">Remove</button></td>
+        <td><button type="button" class="btn btn-sm btn-outline-success" [routerLink]="['/profile']" >Submit</button></td>
+      </tr>
+    </table>
+  
+  </div>
+  
